@@ -4,10 +4,6 @@
   tasks:
   - name: Update and upgrade apt packages
     apt:
-      name: "*"
-      state: latest
-      #upgrade: yes
       update_cache: yes
-      cache_valid_time: 86400 #One day
-      autoremove: yes
-      purge: true
+      force_apt_get: yes
+      cache_valid_time: 3600
