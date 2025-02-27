@@ -2,6 +2,12 @@
 - hosts: all
   become: yes
   tasks:
-    - name: Update all packages
-      apt:
-        upgrade: 'yes'
+  - name: Update and upgrade apt packages
+    apt:
+      name: "*"
+      state: latest
+      #upgrade: yes
+      update_cache: yes
+      cache_valid_time: 86400 #One day
+      autoremove: yes
+      purge: true
